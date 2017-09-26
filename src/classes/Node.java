@@ -15,7 +15,16 @@ public class Node implements BinaryTreeNode {
 	private Node parent;
 	private Node leftChild;
 	private Node rightChild;
+	private int value;
 	
+	
+	/*
+	 * Constructor
+	 * @param value - any int
+	 */
+	public Node(int value) {
+		this.value = value;
+	}
 	/*
 	 * Getters and setters for instance variables
 	 */
@@ -42,6 +51,27 @@ public class Node implements BinaryTreeNode {
 	@Override
 	public void setRightChild(Node node) {
 		rightChild = node;
+	}
+	@Override
+	public int getValue() {
+		return value;
+	}
+	@Override
+	public void setValue(int value) {
+		this.value = value;
+	}
+	
+	/*
+	 * Provide a readable format for printing Nodes
+	 */
+	@Override
+	public String toString() {
+		String output = "";
+		output += "  " + value + " \n";
+		output += " / \\ \n";
+		output += (this.leftChild == null) ? "X": this.leftChild.getValue()  + "   ";
+		output += (this.rightChild == null) ? "   X": this.rightChild.getValue() + "\n";
+		return output;
 	}
 
 }

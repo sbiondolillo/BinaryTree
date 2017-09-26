@@ -21,5 +21,6 @@ public interface BinaryTreeNode {
 	void setLeftChild(Node node);
 	Node getRightChild();
 	void setRightChild(Node node);
-	
+	int getValue();
+	void setValue(int value);
 }

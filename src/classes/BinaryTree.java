@@ -27,7 +27,7 @@ public class BinaryTree implements BinaryTreeStructure{
 	 * Add a node to the tree
 	 */
 	public void add(Node node) {
-		// TODO - implement this method
+		nodes.add(node);
 	}
 	
 	/*
@@ -44,4 +44,17 @@ public class BinaryTree implements BinaryTreeStructure{
 		// TODO - implement this method
 	}
 
+	/*
+	 * Provide a readable format for printing BinaryTrees
+	 */
+	@Override
+	public String toString() {
+		String output = "";
+		for (int i = 0; i < nodes.size(); i++) {
+			output += "Node #" + i + "\n";
+			output += nodes.get(i);
+			output += "\n";
+		}
+		return output;
+	}
 }
