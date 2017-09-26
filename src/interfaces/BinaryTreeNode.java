@@ -15,12 +15,15 @@ public interface BinaryTreeNode {
 	/*
 	 * Getters/Setters for instance variables
 	 */
-	Node getParent();
-	void setParent(Node node);
 	Node getLeftChild();
 	void setLeftChild(Node node);
 	Node getRightChild();
 	void setRightChild(Node node);
 	int getValue();
 	void setValue(int value);
+	
+	/*
+	 * Provide a readable format for printing Nodes
+	 */
+	String toString();
 }
