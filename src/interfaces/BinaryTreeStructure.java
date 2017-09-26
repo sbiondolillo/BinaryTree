@@ -1,3 +1,11 @@
+/*
+ * BinaryTreeStructure Interface
+ * Samuel Biondolillo
+ * CIS210M:ZZ Data Structures and Elementary Algorithms
+ * Goal: To create a base interface for BinaryTree objects
+ * Version  0.0.1   9/26/17
+ */
+
 package interfaces;
 
 import java.util.ArrayList;

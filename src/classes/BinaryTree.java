@@ -15,6 +15,7 @@ import interfaces.BinaryTreeStructure;
 public class BinaryTree implements BinaryTreeStructure{
 	
 	private ArrayList<Node> nodes = new ArrayList<Node>();
+	
 	/*
 	 * Getter for instance variable nodes
 	 */

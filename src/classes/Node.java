@@ -1,3 +1,11 @@
+/*
+ * Node Class
+ * Samuel Biondolillo
+ * CIS210M:ZZ Data Structures and Elementary Algorithms
+ * Goal: To create a class to model the nodes of a binary tree
+ * Version  0.0.1   9/26/17
+ */
+
 package classes;
 
 import interfaces.BinaryTreeNode;
@@ -8,6 +16,9 @@ public class Node implements BinaryTreeNode {
 	private Node leftChild;
 	private Node rightChild;
 	
+	/*
+	 * Getters and setters for instance variables
+	 */
 	@Override
 	public Node getParent() {
 		return parent;
