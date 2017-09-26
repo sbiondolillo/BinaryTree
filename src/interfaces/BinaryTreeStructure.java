@@ -33,5 +33,9 @@ public interface BinaryTreeStructure {
 	 * Remove a node from the tree
 	 */
 	void delete(Node node);
-
+	
+	/*
+	 * Provide a readable format for printing to console
+	 */
+	String toString();
 }

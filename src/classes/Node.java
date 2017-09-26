@@ -12,7 +12,6 @@ import interfaces.BinaryTreeNode;
 
 public class Node implements BinaryTreeNode {
 	
-	private Node parent;
 	private Node leftChild;
 	private Node rightChild;
 	private int value;
@@ -28,14 +27,6 @@ public class Node implements BinaryTreeNode {
 	/*
 	 * Getters and setters for instance variables
 	 */
-	@Override
-	public Node getParent() {
-		return parent;
-	}
-	@Override 
-	public void setParent(Node node) {
-		parent = node;
-	}
 	@Override
 	public Node getLeftChild() {
 		return leftChild;
@@ -67,10 +58,9 @@ public class Node implements BinaryTreeNode {
 	@Override
 	public String toString() {
 		String output = "";
-		output += "  " + value + " \n";
-		output += " / \\ \n";
-		output += (this.leftChild == null) ? "X": this.leftChild.getValue()  + "   ";
-		output += (this.rightChild == null) ? "   X": this.rightChild.getValue() + "\n";
+		output += (this.leftChild == null) ? "X-": this.leftChild.getValue() + "-";
+		output += value + "-";
+		output += (this.rightChild == null) ? "X\n": this.rightChild.getValue() + "\n";
 		return output;
 	}
 
