@@ -63,5 +63,15 @@ public class Node implements BinaryTreeNode {
 		output += (this.rightChild == null) ? "X\n": this.rightChild.getValue() + "\n";
 		return output;
 	}
+	
+	/*
+	 * Returns whether or not the given node has a left or right child
+	 */
+	public boolean hasLeftChild() {
+		return this.leftChild != null;
+	}
+	public boolean hasRightChild() {
+		return this.rightChild != null;
+	}
 
 }

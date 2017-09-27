@@ -31,7 +31,7 @@ public class BinaryTree implements BinaryTreeStructure{
 	@Override
 	public void add(Node node) {
 		// if there isn't a root node yet, add the node and set it as root
-		if (nodes.size() == 0) {
+		if (!this.hasRoot()) {
 			nodes.add(node);
 			root = node;
 		} 
@@ -43,7 +43,7 @@ public class BinaryTree implements BinaryTreeStructure{
 				// greater than
 				if (node.getValue() > currentNode.getValue()) {
 					// if there is an existing right child, move the pointer
-					if (currentNode.getRightChild() != null) {
+					if (currentNode.hasRightChild()) {
 						currentNode = currentNode.getRightChild();
 					} 
 					// set this node as the right child
@@ -55,7 +55,7 @@ public class BinaryTree implements BinaryTreeStructure{
 				}
 				// less than
 				else if (node.getValue() < currentNode.getValue()) {
-					if (currentNode.getLeftChild() != null) {
+					if (currentNode.hasLeftChild()) {
 						currentNode = currentNode.getLeftChild();
 					} 
 					// set this node as the left child
@@ -95,7 +95,7 @@ public class BinaryTree implements BinaryTreeStructure{
 		while (true) {
 			// greater than, move right
 			if (node.getValue() > currentNode.getValue()) {
-				if (currentNode.getRightChild() != null) {
+				if (currentNode.hasRightChild()) {
 					parent = currentNode;
 					direction = 1;
 					currentNode = currentNode.getRightChild();
@@ -104,7 +104,7 @@ public class BinaryTree implements BinaryTreeStructure{
 			}
 			// less than, move left
 			else if (node.getValue() < currentNode.getValue()) {
-				if (currentNode.getLeftChild() != null) {
+				if (currentNode.hasLeftChild()) {
 					parent = currentNode;
 					direction = 0;
 					currentNode = currentNode.getLeftChild();
@@ -114,7 +114,7 @@ public class BinaryTree implements BinaryTreeStructure{
 			// equal, we found the node
 			else {
 				// two children
-				if (currentNode.getLeftChild() != null && currentNode.getRightChild() != null) {
+				if (currentNode.hasLeftChild() && currentNode.hasRightChild()) {
 					// remember the node so we can delete it later
 					// keep the children stored off so we can swap in a new parent
 					Node deletedNode = currentNode;
@@ -123,16 +123,16 @@ public class BinaryTree implements BinaryTreeStructure{
 					// find leftmost element of right branch
 					// move down one element to the right
 					// see if there is a left branch from the right branch head
-					if (rightBranchHead.getLeftChild() != null) {
+					if (rightBranchHead.hasLeftChild()) {
 						// follow the left branch all the way down
 						currentNode = rightBranchHead;
 						Node branchParent = currentNode;
-						while (currentNode.getLeftChild() != null) {
+						while (currentNode.hasLeftChild()) {
 							branchParent = currentNode;
 							currentNode = currentNode.getLeftChild();
 						}
 						// set any stranded children in their place 
-						if (currentNode.getRightChild() != null) {
+						if (currentNode.hasRightChild()) {
 							branchParent.setLeftChild(currentNode.getRightChild());
 						}
 						// move the leftmost node up to the spot of the deleted node
@@ -166,11 +166,11 @@ public class BinaryTree implements BinaryTreeStructure{
 					break;					
 				}
 				// one child
-				else if (currentNode.getLeftChild() != null || currentNode.getRightChild() != null) {
+				else if (currentNode.hasLeftChild() || currentNode.hasRightChild()) {
 					// we moved down the right branch to arrive here
 					if (direction == 1) {
 						// there is a left child remaining below
-						if (currentNode.getLeftChild() != null) {
+						if (currentNode.hasLeftChild()) {
 							parent.setRightChild(currentNode.getLeftChild());
 							nodes.remove(currentNode);
 							currentNode = null;
@@ -185,7 +185,7 @@ public class BinaryTree implements BinaryTreeStructure{
 					// we moved down the left branch to arrive here
 					else if (direction == 0) {
 						// there is a left child remaining below
-						if (currentNode.getLeftChild() != null) {
+						if (currentNode.hasLeftChild()) {
 							parent.setLeftChild(currentNode.getLeftChild());
 							nodes.remove(currentNode);
 							currentNode = null;
@@ -240,5 +240,9 @@ public class BinaryTree implements BinaryTreeStructure{
 			output += "\n";
 		}
 		return output;
+	}
+	
+	private boolean hasRoot() {
+		return root != null;
 	}
 }
