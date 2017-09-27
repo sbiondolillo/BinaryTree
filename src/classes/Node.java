@@ -67,9 +67,11 @@ public class Node implements BinaryTreeNode {
 	/*
 	 * Returns whether or not the given node has a left or right child
 	 */
+	@Override
 	public boolean hasLeftChild() {
 		return this.leftChild != null;
 	}
+	@Override
 	public boolean hasRightChild() {
 		return this.rightChild != null;
 	}

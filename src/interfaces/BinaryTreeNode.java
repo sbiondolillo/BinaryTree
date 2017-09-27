@@ -26,4 +26,10 @@ public interface BinaryTreeNode {
 	 * Provide a readable format for printing Nodes
 	 */
 	String toString();
+	
+	/*
+	 * Returns whether or not the given node has a left or right child
+	 */
+	boolean hasLeftChild();
+	boolean hasRightChild();
 }

@@ -242,6 +242,9 @@ public class BinaryTree implements BinaryTreeStructure{
 		return output;
 	}
 	
+	/*
+	 * Returns whether or not the BinaryTree has a root node set
+	 */
 	private boolean hasRoot() {
 		return root != null;
 	}
