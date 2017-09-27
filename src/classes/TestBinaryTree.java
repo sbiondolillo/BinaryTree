@@ -34,31 +34,32 @@ public class TestBinaryTree {
 		bTree.add(new Node(20));
 		System.out.println(bTree);
 		// test delete() method
-		int deletedIndex = 4;
-		System.out.println("Deleting " + bTree.getNodes().get(deletedIndex).getValue());
-		bTree.delete(bTree.getNodes().get(deletedIndex));
-		System.out.println(bTree);
-		deletedIndex = 1;
-		System.out.println("Deleting " + bTree.getNodes().get(deletedIndex).getValue());
-		bTree.delete(bTree.getNodes().get(deletedIndex));
-		System.out.println(bTree);
-		deletedIndex = 7;
-		System.out.println("Deleting " + bTree.getNodes().get(deletedIndex).getValue());
-		bTree.delete(bTree.getNodes().get(deletedIndex));
-		System.out.println(bTree);
-		deletedIndex = 9;
-		System.out.println("Deleting " + bTree.getNodes().get(deletedIndex).getValue());
-		bTree.delete(bTree.getNodes().get(deletedIndex));
-		System.out.println(bTree);
-		deletedIndex = 7;
-		System.out.println("Deleting " + bTree.getNodes().get(deletedIndex).getValue());
-		bTree.delete(bTree.getNodes().get(deletedIndex));
-		System.out.println(bTree);
-		deletedIndex = 7;
-		System.out.println("Deleting " + bTree.getNodes().get(deletedIndex).getValue());
-		bTree.delete(bTree.getNodes().get(deletedIndex));
-		System.out.println("Root at Node #" + bTree.getNodes().indexOf(bTree.getRoot()));
-		System.out.println(bTree);
+		int deletedValue = 15;
+		System.out.println("Deleting " + deletedValue);
+		try {
+			bTree.delete(bTree.find(deletedValue));
+			System.out.println(bTree);
+		}
+		catch (NullPointerException e) {
+			System.out.println("Unable to locate " + deletedValue);
+		}
+		System.out.println("Deleting " + deletedValue);
+		try {
+			bTree.delete(bTree.find(deletedValue));
+			System.out.println(bTree);
+		}
+		catch (NullPointerException e) {
+			System.out.println("Unable to locate " + deletedValue);
+		}
+		deletedValue = 7;
+		System.out.println("Deleting " + deletedValue);
+		try {
+			bTree.delete(bTree.find(deletedValue));
+			System.out.println(bTree);
+		}
+		catch (NullPointerException e) {
+			System.out.println("Unable to locate " + deletedValue);
+		}
 		// test change() method
 		Node changeNode = bTree.getNodes().get(4);
 		int changeValue = 16;

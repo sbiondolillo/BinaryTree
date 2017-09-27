@@ -248,6 +248,39 @@ public class BinaryTree implements BinaryTreeStructure{
 	}
 
 	/*
+	 * Find a Node given an integer value
+	 */
+	public Node find(int value) {
+		Node currentNode = root;
+		// traverse the tree making comparisons
+		while (true) {
+			// greater than
+			if (value > currentNode.getValue()) {
+				// if there is an existing right child, move the pointer
+				if (currentNode.hasRightChild()) {
+					currentNode = currentNode.getRightChild();
+				}
+				else {
+					return null;
+				}
+			}
+			// less than
+			else if (value < currentNode.getValue()) {
+				// if there is an existing left child, move the pointer
+				if (currentNode.hasLeftChild()) {
+					currentNode = currentNode.getLeftChild();
+				} 
+				else {
+					return null;
+				}
+			}
+			// equal
+			else if (value == currentNode.getValue()) {
+				return currentNode;
+			}
+		}
+	}
+	/*
 	 * Provide a readable format for printing BinaryTrees
 	 */
 	@Override
