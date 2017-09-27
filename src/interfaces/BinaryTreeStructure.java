@@ -27,7 +27,7 @@ public interface BinaryTreeStructure {
 	/*
 	 * Modify a node in place
 	 */
-	void change(Node node);
+	void change(Node existingNode, Node newNode);
 	
 	/*
 	 * Remove a node from the tree

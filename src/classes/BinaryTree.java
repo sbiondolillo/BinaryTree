@@ -78,8 +78,9 @@ public class BinaryTree implements BinaryTreeStructure{
 	 * Modify a node in place
 	 */
 	@Override
-	public void change(Node node) {
-		// TODO - implement this method
+	public void change(Node existingNode, Node newNode) {
+		this.delete(existingNode);
+		this.add(newNode);
 	}
 	
 	/*

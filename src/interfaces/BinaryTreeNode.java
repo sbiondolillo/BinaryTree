@@ -4,6 +4,7 @@
  * CIS210M:ZZ Data Structures and Elementary Algorithms
  * Goal: To create a base interface for Nodes used in BinaryTree objects
  * Version  0.0.1   9/26/17
+ * 			0.0.2	9/27/17		Added hasLeftChild() and hasRightChild() methods
  */
 
 package interfaces;
