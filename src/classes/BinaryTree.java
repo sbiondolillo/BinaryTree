@@ -87,7 +87,145 @@ public class BinaryTree implements BinaryTreeStructure{
 	 */
 	@Override
 	public void delete(Node node) {
-		// TODO - implement this method
+		// find the node
+		Node currentNode = root;
+		Node parent = root;
+		int direction = -1;
+		// traverse the tree stepwise, moving down one node at a time
+		while (true) {
+			// greater than, move right
+			if (node.getValue() > currentNode.getValue()) {
+				if (currentNode.getRightChild() != null) {
+					parent = currentNode;
+					direction = 1;
+					currentNode = currentNode.getRightChild();
+					continue;
+				}
+			}
+			// less than, move left
+			else if (node.getValue() < currentNode.getValue()) {
+				if (currentNode.getLeftChild() != null) {
+					parent = currentNode;
+					direction = 0;
+					currentNode = currentNode.getLeftChild();
+					continue;
+				}
+			}
+			// equal, we found the node
+			else {
+				// two children
+				if (currentNode.getLeftChild() != null && currentNode.getRightChild() != null) {
+					// remember the node so we can delete it later
+					// keep the children stored off so we can swap in a new parent
+					Node deletedNode = currentNode;
+					Node leftBranchHead = currentNode.getLeftChild();
+					Node rightBranchHead = currentNode.getRightChild();
+					// find leftmost element of right branch
+					// move down one element to the right
+					// see if there is a left branch from the right branch head
+					if (rightBranchHead.getLeftChild() != null) {
+						// follow the left branch all the way down
+						currentNode = rightBranchHead;
+						Node branchParent = currentNode;
+						while (currentNode.getLeftChild() != null) {
+							branchParent = currentNode;
+							currentNode = currentNode.getLeftChild();
+						}
+						// set any stranded children in their place 
+						if (currentNode.getRightChild() != null) {
+							branchParent.setLeftChild(currentNode.getRightChild());
+						}
+						// move the leftmost node up to the spot of the deleted node
+						parent.setRightChild(currentNode);
+						if (branchParent.equals(rightBranchHead)) {
+							rightBranchHead.setLeftChild(null);
+						}
+						currentNode.setRightChild(rightBranchHead);
+						currentNode.setLeftChild(leftBranchHead);
+						// delete the chosen node
+						nodes.remove(deletedNode);
+						deletedNode = null;
+						break;
+					}
+					// if there isn't a left branch off of the right branch head
+					// promote the right branch head to the parent's right child
+					// if we came down the right branch
+					if (direction == 1) {
+						parent.setRightChild(rightBranchHead);
+						rightBranchHead.setLeftChild(leftBranchHead);
+					} 
+					// promote the right branch head to the parent's left child
+					// if we came down the left branch
+					else {
+						parent.setLeftChild(rightBranchHead);
+						rightBranchHead.setLeftChild(leftBranchHead);
+					}
+					// delete the chosen node
+					nodes.remove(deletedNode);
+					deletedNode = null;
+					break;					
+				}
+				// one child
+				else if (currentNode.getLeftChild() != null || currentNode.getRightChild() != null) {
+					// we moved down the right branch to arrive here
+					if (direction == 1) {
+						// there is a left child remaining below
+						if (currentNode.getLeftChild() != null) {
+							parent.setRightChild(currentNode.getLeftChild());
+							nodes.remove(currentNode);
+							currentNode = null;
+						}
+						// there is a right child remaining below
+						else {
+							parent.setRightChild(currentNode.getRightChild());
+							nodes.remove(currentNode);
+							currentNode = null;
+						}
+					}
+					// we moved down the left branch to arrive here
+					else if (direction == 0) {
+						// there is a left child remaining below
+						if (currentNode.getLeftChild() != null) {
+							parent.setLeftChild(currentNode.getLeftChild());
+							nodes.remove(currentNode);
+							currentNode = null;
+						}
+						// there is a right child remaining below
+						else {
+							parent.setLeftChild(currentNode.getRightChild());
+							nodes.remove(currentNode);
+							currentNode = null;
+						}
+					}
+					// something went wrong
+					else
+						System.out.println("Something went wrong.");
+						break;
+				}
+				// no children
+				else {
+					// we moved down the right branch to arrive here
+					if (direction == 1) {
+						parent.setRightChild(null);
+						nodes.remove(currentNode);
+						currentNode = null;
+						break;
+					}
+					// we moved down the left branch to arrive here
+					else if (direction == 0) {
+						parent.setLeftChild(null);
+						nodes.remove(currentNode);
+						currentNode = null;
+						break;
+					}
+					// something went wrong
+					else {
+						System.out.println("Something went wrong.");
+						break;
+					}
+				}
+			}
+		}
 	}
 
 	/*
@@ -97,7 +235,7 @@ public class BinaryTree implements BinaryTreeStructure{
 	public String toString() {
 		String output = "";
 		for (int i = 0; i < nodes.size(); i++) {
-			output += "Node #" + i + "\n";
+			output += "Node #" + i + ": ";
 			output += nodes.get(i);
 			output += "\n";
 		}
