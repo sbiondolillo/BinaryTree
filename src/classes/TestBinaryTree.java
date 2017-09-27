@@ -21,6 +21,7 @@ public class TestBinaryTree {
 		// print to view nodes in tree
 		System.out.println("Building original tree...");
 		System.out.println(bTree);
+		// test add() method with individual nodes
 		Node n1 = new Node(18);
 		bTree.add(n1);
 		System.out.println("Adding 18");
@@ -32,6 +33,7 @@ public class TestBinaryTree {
 		System.out.println("Adding 20");
 		bTree.add(new Node(20));
 		System.out.println(bTree);
+		// test delete() method
 		int deletedIndex = 4;
 		System.out.println("Deleting " + bTree.getNodes().get(deletedIndex).getValue());
 		bTree.delete(bTree.getNodes().get(deletedIndex));
@@ -55,23 +57,40 @@ public class TestBinaryTree {
 		deletedIndex = 7;
 		System.out.println("Deleting " + bTree.getNodes().get(deletedIndex).getValue());
 		bTree.delete(bTree.getNodes().get(deletedIndex));
+		System.out.println("Root at Node #" + bTree.getNodes().indexOf(bTree.getRoot()));
 		System.out.println(bTree);
-		deletedIndex = 5;
-		System.out.println("Deleting " + bTree.getNodes().get(deletedIndex).getValue());
-		bTree.delete(bTree.getNodes().get(deletedIndex));
+		// test change() method
+		Node changeNode = bTree.getNodes().get(4);
+		int changeValue = 16;
+		System.out.println("Changing Node#" + bTree.getNodes().indexOf(changeNode) + "(" + changeNode.getValue() + ") to " + changeValue);
+		bTree.change(changeNode, new Node(changeValue));
+		System.out.println("Root at Node #" + bTree.getNodes().indexOf(bTree.getRoot()));
 		System.out.println(bTree);
-		deletedIndex = 0;
-		System.out.println("Deleting " + bTree.getNodes().get(deletedIndex).getValue());
-		bTree.delete(bTree.getNodes().get(deletedIndex));
+		changeNode = bTree.getNodes().get(3);
+		changeValue = 17;
+		System.out.println("Changing Node#" + bTree.getNodes().indexOf(changeNode) + "(" + changeNode.getValue() + ") to " + changeValue);
+		bTree.change(changeNode, new Node(changeValue));
+		System.out.println("Root at Node #" + bTree.getNodes().indexOf(bTree.getRoot()));
 		System.out.println(bTree);
-		deletedIndex = 1;
-		System.out.println("Deleting " + bTree.getNodes().get(deletedIndex).getValue());
-		bTree.delete(bTree.getNodes().get(deletedIndex));
+		changeNode = bTree.getNodes().get(0);
+		changeValue = 11;
+		System.out.println("Changing Node#" + bTree.getNodes().indexOf(changeNode) + "(" + changeNode.getValue() + ") to " + changeValue);
+		bTree.change(changeNode, new Node(changeValue));
+		System.out.println("Root at Node #" + bTree.getNodes().indexOf(bTree.getRoot()));
 		System.out.println(bTree);
-		deletedIndex = 2;
-		System.out.println("Deleting " + bTree.getNodes().get(deletedIndex).getValue());
-		bTree.delete(bTree.getNodes().get(deletedIndex));
+		changeNode = bTree.getNodes().get(1);
+		changeValue = 7;
+		System.out.println("Changing Node#" + bTree.getNodes().indexOf(changeNode) + "(" + changeNode.getValue() + ") to " + changeValue);
+		bTree.change(changeNode, new Node(changeValue));
+		System.out.println("Root at Node #" + bTree.getNodes().indexOf(bTree.getRoot()));
 		System.out.println(bTree);
+		changeNode = bTree.getNodes().get(5);
+		changeValue = 15;
+		System.out.println("Changing Node#" + bTree.getNodes().indexOf(changeNode) + "(" + changeNode.getValue() + ") to " + changeValue);
+		bTree.change(changeNode, new Node(changeValue));
+		System.out.println("Root at Node #" + bTree.getNodes().indexOf(bTree.getRoot()));
+		System.out.println(bTree);
+		
 	}
 
 }

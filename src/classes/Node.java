@@ -4,6 +4,7 @@
  * CIS210M:ZZ Data Structures and Elementary Algorithms
  * Goal: To create a class to model the nodes of a binary tree
  * Version  0.0.1   9/26/17
+ * 			0.0.2	9/27/17		Add hasLeftChild() and hasRightChild() methods
  */
 
 package classes;

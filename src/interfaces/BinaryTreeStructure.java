@@ -4,6 +4,7 @@
  * CIS210M:ZZ Data Structures and Elementary Algorithms
  * Goal: To create a base interface for BinaryTree objects
  * Version  0.0.1   9/26/17
+ * 			0.0.2	9/27/17		Added getter for root instance variable
  */
 
 package interfaces;
@@ -15,9 +16,10 @@ import classes.Node;
 public interface BinaryTreeStructure {
 	
 	/*
-	 * Getter for instance variable nodes
+	 * Getters for instance variables
 	 */
 	ArrayList<Node> getNodes();
+	Node getRoot();
 	
 	/*
 	 * Add a node to the tree
