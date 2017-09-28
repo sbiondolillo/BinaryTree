@@ -35,6 +35,19 @@ public class TestBinaryTree {
 			System.out.println("Unable to locate " + value + "\n");
 		}
 	}
+	
+	private static void testChange(BinaryTree tree, int originalValue, int newValue) {
+		System.out.println("Changing node " + originalValue + " to " + newValue);
+		try { 
+			Node changeNode = tree.find(originalValue);
+			tree.change(changeNode, new Node(newValue));
+			System.out.println("Root at Node #" + tree.getNodes().indexOf(tree.getRoot()));
+			System.out.println(tree);
+		}
+		catch (NullPointerException e) {
+			System.out.println("Unable to locate node " + originalValue + "\n");
+		}
+	}
 
 	public static void main(String[] args) {
 	
@@ -63,37 +76,10 @@ public class TestBinaryTree {
 		testDelete(bTree, 24);
 		testDelete(bTree, 99);
 		// test change() method
-		Node changeNode = bTree.getNodes().get(4);
-		int changeValue = 16;
-		System.out.println("Changing Node#" + bTree.getNodes().indexOf(changeNode) + "(" + changeNode.getValue() + ") to " + changeValue);
-		bTree.change(changeNode, new Node(changeValue));
-		System.out.println("Root at Node #" + bTree.getNodes().indexOf(bTree.getRoot()));
-		System.out.println(bTree);
-		changeNode = bTree.getNodes().get(3);
-		changeValue = 17;
-		System.out.println("Changing Node#" + bTree.getNodes().indexOf(changeNode) + "(" + changeNode.getValue() + ") to " + changeValue);
-		bTree.change(changeNode, new Node(changeValue));
-		System.out.println("Root at Node #" + bTree.getNodes().indexOf(bTree.getRoot()));
-		System.out.println(bTree);
-		changeNode = bTree.getNodes().get(0);
-		changeValue = 11;
-		System.out.println("Changing Node#" + bTree.getNodes().indexOf(changeNode) + "(" + changeNode.getValue() + ") to " + changeValue);
-		bTree.change(changeNode, new Node(changeValue));
-		System.out.println("Root at Node #" + bTree.getNodes().indexOf(bTree.getRoot()));
-		System.out.println(bTree);
-		changeNode = bTree.getNodes().get(1);
-		changeValue = 7;
-		System.out.println("Changing Node#" + bTree.getNodes().indexOf(changeNode) + "(" + changeNode.getValue() + ") to " + changeValue);
-		bTree.change(changeNode, new Node(changeValue));
-		System.out.println("Root at Node #" + bTree.getNodes().indexOf(bTree.getRoot()));
-		System.out.println(bTree);
-		changeNode = bTree.getNodes().get(5);
-		changeValue = 15;
-		System.out.println("Changing Node#" + bTree.getNodes().indexOf(changeNode) + "(" + changeNode.getValue() + ") to " + changeValue);
-		bTree.change(changeNode, new Node(changeValue));
-		System.out.println("Root at Node #" + bTree.getNodes().indexOf(bTree.getRoot()));
-		System.out.println(bTree);
-		
+		testChange(bTree, 7, 16);
+		testChange(bTree, 13, 17);
+		testChange(bTree, 9, 11);
+		testChange(bTree, 18, 15);
 	}
 
 }
