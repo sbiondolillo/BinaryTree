@@ -52,6 +52,7 @@ public class BinaryTree implements BinaryTreeStructure{
 					// if there is an existing right child, move the pointer
 					if (currentNode.hasRightChild()) {
 						currentNode = currentNode.getRightChild();
+						continue;
 					} 
 					// set this node as the right child
 					else {
@@ -64,6 +65,7 @@ public class BinaryTree implements BinaryTreeStructure{
 				else if (node.getValue() < currentNode.getValue()) {
 					if (currentNode.hasLeftChild()) {
 						currentNode = currentNode.getLeftChild();
+						continue;
 					} 
 					// set this node as the left child
 					else {
@@ -95,9 +97,10 @@ public class BinaryTree implements BinaryTreeStructure{
 	/*
 	 * Remove a node from the tree
 	 * @param node - a Node in the tree to be deleted
+	 * throws NullPointerException if node is null
 	 */
 	@Override
-	public void delete(Node node) {
+	public void delete(Node node) throws NullPointerException {
 		// find the node
 		Node currentNode = root;
 		Node parent = root;
