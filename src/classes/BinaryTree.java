@@ -30,8 +30,10 @@ public class BinaryTree implements BinaryTreeStructure{
 	public Node getRoot() {
 		return root;
 	}
+	
 	/*
 	 * Add a node to the tree
+	 * @param node - a Node object to be added
 	 */
 	@Override
 	public void add(Node node) {
@@ -81,6 +83,8 @@ public class BinaryTree implements BinaryTreeStructure{
 	
 	/*
 	 * Modify a node in place
+	 * @param existingNode - a Node which exists in the tree
+	 * @param newNode - a Node object to be added to the tree
 	 */
 	@Override
 	public void change(Node existingNode, Node newNode) {
@@ -90,6 +94,7 @@ public class BinaryTree implements BinaryTreeStructure{
 	
 	/*
 	 * Remove a node from the tree
+	 * @param node - a Node in the tree to be deleted
 	 */
 	@Override
 	public void delete(Node node) {
@@ -249,7 +254,8 @@ public class BinaryTree implements BinaryTreeStructure{
 	}
 
 	/*
-	 * Find a Node given an integer value
+	 * Locate a Node within the tree
+	 * @param value - the int .value of the Node to be found
 	 */
 	public Node find(int value) {
 		Node currentNode = root;
@@ -281,8 +287,9 @@ public class BinaryTree implements BinaryTreeStructure{
 			}
 		}
 	}
+	
 	/*
-	 * Provide a readable format for printing BinaryTrees
+	 * Provide a readable format for printing to console
 	 */
 	@Override
 	public String toString() {
