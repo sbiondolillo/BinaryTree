@@ -5,6 +5,7 @@
  * Goal: To implement the Binary Tree structure and necessary modifications
  * Version  0.0.1   9/26/17
  * 			0.0.2   9/27/17		Refinements to the delete() method, create change() method
+ * 			0.0.3	9/28/17		add root index to toString() method
  */
 
 package classes;
@@ -286,6 +287,7 @@ public class BinaryTree implements BinaryTreeStructure{
 	@Override
 	public String toString() {
 		String output = "";
+		output += "Root at Node #" + this.getNodes().indexOf(root) + "\n";
 		for (int i = 0; i < nodes.size(); i++) {
 			output += "Node #" + i + ": ";
 			output += nodes.get(i);

@@ -63,7 +63,6 @@ public class TestBinaryTree {
 		try { 
 			Node changeNode = tree.find(originalValue);
 			tree.change(changeNode, new Node(newValue));
-			System.out.println("Root at Node #" + tree.getNodes().indexOf(tree.getRoot()));
 			System.out.println(tree);
 		}
 		catch (NullPointerException e) {
@@ -93,7 +92,7 @@ public class TestBinaryTree {
 		// test add() method with individual nodes
 		testAdd(bTree, 18);
 		testAdd(bTree, 24);
-		testAdd(bTree, 28);
+		testAdd(bTree, 17);
 		testAdd(bTree, 24);
 		// test delete() method
 		testDelete(bTree, 15);
@@ -105,7 +104,7 @@ public class TestBinaryTree {
 		testChange(bTree, 13, 17);
 		testChange(bTree, 9, 11);
 		testChange(bTree, 18, 15);
-		testChange(bTree, 17, 12);
+		testChange(bTree, 8, 7);
 	}
 
 }
