@@ -260,6 +260,7 @@ public class BinaryTree implements BinaryTreeStructure{
 	 * Locate a Node within the tree
 	 * @param value - the int .value of the Node to be found
 	 */
+	@Override
 	public Node find(int value) {
 		Node currentNode = root;
 		// traverse the tree making comparisons
