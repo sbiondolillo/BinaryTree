@@ -14,9 +14,26 @@ public class TestBinaryTree {
 		System.out.println("Finding node " + value);
 		Node foundNode = tree.find(value);
 		if (foundNode == null)
-			System.out.println("Unable to find node " + value);
+			System.out.println("Unable to find node " + value + "\n");
 		else
 			System.out.println(foundNode);
+	}
+	
+	private static void testAdd(BinaryTree tree, int value) {
+		System.out.println("Adding " + value);
+		tree.add(new Node(value));
+		System.out.println(tree);
+	}
+	
+	private static void testDelete(BinaryTree tree, int value) {
+		System.out.println("Deleting " + value);
+		try {
+			tree.delete(tree.find(value));
+			System.out.println(tree);
+		}
+		catch (NullPointerException e) {
+			System.out.println("Unable to locate " + value + "\n");
+		}
 	}
 
 	public static void main(String[] args) {
@@ -36,44 +53,15 @@ public class TestBinaryTree {
 		testFind(bTree, 7);
 		testFind(bTree, 99);
 		// test add() method with individual nodes
-		Node n1 = new Node(18);
-		bTree.add(n1);
-		System.out.println("Adding 18");
-		System.out.println(bTree);
-		System.out.println("Adding 24");
-		bTree.add(new Node(24));
-		System.out.println("Adding 28");
-		bTree.add(new Node(28));
-		System.out.println("Adding 20");
-		bTree.add(new Node(20));
-		System.out.println(bTree);
+		testAdd(bTree, 18);
+		testAdd(bTree, 24);
+		testAdd(bTree, 28);
+		testAdd(bTree, 24);
 		// test delete() method
-		int deletedValue = 15;
-		System.out.println("Deleting " + deletedValue);
-		try {
-			bTree.delete(bTree.find(deletedValue));
-			System.out.println(bTree);
-		}
-		catch (NullPointerException e) {
-			System.out.println("Unable to locate " + deletedValue);
-		}
-		System.out.println("Deleting " + deletedValue);
-		try {
-			bTree.delete(bTree.find(deletedValue));
-			System.out.println(bTree);
-		}
-		catch (NullPointerException e) {
-			System.out.println("Unable to locate " + deletedValue);
-		}
-		deletedValue = 7;
-		System.out.println("Deleting " + deletedValue);
-		try {
-			bTree.delete(bTree.find(deletedValue));
-			System.out.println(bTree);
-		}
-		catch (NullPointerException e) {
-			System.out.println("Unable to locate " + deletedValue);
-		}
+		testDelete(bTree, 15);
+		testDelete(bTree, 7);
+		testDelete(bTree, 24);
+		testDelete(bTree, 99);
 		// test change() method
 		Node changeNode = bTree.getNodes().get(4);
 		int changeValue = 16;
