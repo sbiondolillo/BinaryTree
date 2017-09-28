@@ -9,6 +9,15 @@
 package classes;
 
 public class TestBinaryTree {
+	
+	private static void testFind(BinaryTree tree, int value) {
+		System.out.println("Finding node " + value);
+		Node foundNode = tree.find(value);
+		if (foundNode == null)
+			System.out.println("Unable to find node " + value);
+		else
+			System.out.println(foundNode);
+	}
 
 	public static void main(String[] args) {
 	
@@ -21,6 +30,11 @@ public class TestBinaryTree {
 		// print to view nodes in tree
 		System.out.println("Building original tree...");
 		System.out.println(bTree);
+		// test find() method
+		testFind(bTree, 15);
+		testFind(bTree, 13);
+		testFind(bTree, 7);
+		testFind(bTree, 99);
 		// test add() method with individual nodes
 		Node n1 = new Node(18);
 		bTree.add(n1);

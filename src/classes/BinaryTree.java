@@ -259,20 +259,20 @@ public class BinaryTree implements BinaryTreeStructure{
 				// if there is an existing right child, move the pointer
 				if (currentNode.hasRightChild()) {
 					currentNode = currentNode.getRightChild();
+					continue;
 				}
-				else {
+				else
 					return null;
-				}
 			}
 			// less than
 			else if (value < currentNode.getValue()) {
 				// if there is an existing left child, move the pointer
 				if (currentNode.hasLeftChild()) {
 					currentNode = currentNode.getLeftChild();
-				} 
-				else {
-					return null;
+					continue;
 				}
+				else
+					return null;
 			}
 			// equal
 			else if (value == currentNode.getValue()) {
