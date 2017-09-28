@@ -37,6 +37,12 @@ public interface BinaryTreeStructure {
 	void delete(Node node);
 	
 	/*
+	 * Locate a Node within the tree
+	 * @param value - the int .value of the Node to be found
+	 */
+	Node find(int value);
+	
+	/*
 	 * Provide a readable format for printing to console
 	 */
 	String toString();
