@@ -9,6 +9,8 @@
 
 package classes;
 
+import java.util.Scanner;
+
 public class TestBinaryTree {
 	
 	/*
@@ -75,6 +77,18 @@ public class TestBinaryTree {
 	 */
 	public static void main(String[] args) {
 	
+		Scanner input = new Scanner(System.in);
+		System.out.println();
+		System.out.println("This program will build a Binary Tree and then perform some operations on it.");
+		System.out.println("The Tree will be printed out at each step so you can view the altered states.");
+		System.out.println("After building the Tree, the program will search for some values in the Tree,");
+		System.out.println("then it will attempt to add some values to the Tree, then it will attempt to ");
+		System.out.println("delete some values from the Tree, and finally it will attempt to change some ");
+		System.out.println("values within the tree.");
+		System.out.println();
+		System.out.println("Please press enter to view the demonstration.");
+		System.out.println();
+		String enter = input.nextLine();
 		// build up the binary tree with initial nodes
 		BinaryTree bTree = new BinaryTree();
 		int[] nodes = new int[] {9,7,8,10,15,13,6,12,5};
