@@ -71,6 +71,17 @@ public class TestBinaryTree {
 			System.out.println("Unable to locate node " + originalValue + "\n");
 		}
 	}
+	
+	private static void wait(int delay) {
+		try        
+		{
+		    Thread.sleep(delay);
+		} 
+		catch(InterruptedException ex) 
+		{
+		    Thread.currentThread().interrupt();
+		}
+	}
 
 	/* Main
 	 * Build up a BinaryTree and test the various methods of the BinaryTree class
@@ -78,6 +89,7 @@ public class TestBinaryTree {
 	public static void main(String[] args) {
 	
 		Scanner input = new Scanner(System.in);
+		int delay = 1500;
 		System.out.println();
 		System.out.println("This program will build a Binary Tree and then perform some operations on it.");
 		System.out.println("The Tree will be printed out at each step so you can view the altered states.");
@@ -98,26 +110,42 @@ public class TestBinaryTree {
 		// print to view nodes in tree
 		System.out.println("Building original tree...");
 		System.out.println(bTree);
+		wait(delay);
 		// test find() method
 		testFind(bTree, 15);
+		wait(delay);
 		testFind(bTree, 13);
+		wait(delay);
 		testFind(bTree, 7);
+		wait(delay);
 		testFind(bTree, 99);
+		wait(delay);
 		// test add() method with individual nodes
 		testAdd(bTree, 18);
+		wait(delay);
 		testAdd(bTree, 24);
+		wait(delay);
 		testAdd(bTree, 17);
+		wait(delay);
 		testAdd(bTree, 24);
 		// test delete() method
 		testDelete(bTree, 15);
+		wait(delay);
 		testDelete(bTree, 7);
+		wait(delay);
 		testDelete(bTree, 24);
+		wait(delay);
 		testDelete(bTree, 99);
+		wait(delay);
 		// test change() method
 		testChange(bTree, 7, 16);
+		wait(delay);
 		testChange(bTree, 13, 17);
+		wait(delay);
 		testChange(bTree, 9, 11);
+		wait(delay);
 		testChange(bTree, 18, 15);
+		wait(delay);
 		testChange(bTree, 8, 7);
 	}
 
